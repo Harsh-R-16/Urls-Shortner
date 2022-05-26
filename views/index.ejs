@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            letter-spacing: 1.25px;
+            font-family: monospace;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 15px
+        }
+
+        form {
+            width: 400px;
+            margin: 10px auto;
+            display: flex;
+        }
+
+        input {
+            flex-grow: 1;
+            margin-right: 10px
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 25px auto;
+        }
+
+        td,
+        th {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center
+        }
+
+        a {
+            text-decoration: none
+        }
+    </style>
+</head>
+
+<body>
+    <h1>URL Shortner</h1>
+
+    <form action="/urls" method="POST">
+        <input type="url" name="url" id="url">
+        <button>Shrink</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Full URL</th>
+                <th>Short URL</th>
+                <th>Clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% urls.forEach(url=>{%>
+                <% console.log(url) %>
+                    <tr>
+                        <td>
+                            <a href="<%=url.full%>">
+                                <%=url.full%>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="<%=url.short%>">
+                                <%=url.short%>
+                            </a>
+                        </td>
+                        <td>
+                            <%=url.click%>
+                        </td>
+                    </tr>
+                    <% }) %>
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>
