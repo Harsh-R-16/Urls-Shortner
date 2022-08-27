@@ -33,7 +33,7 @@ app.get("/:url", async (req, res) => {
   }
 });
 
-const PORT = 3030;
+const PORT = 8080;
 
 app.listen(PORT, function () {
   console.log("Listening on port", PORT);
